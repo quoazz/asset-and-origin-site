@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Legal · Asset &amp; Origin</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="brand/favicon.ico" sizes="any">
+<link rel="icon" href="brand/ao-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<style>
+/* Fonts are served from this site (no third-party font requests). SIL Open Font License, see fonts/OFL-*.txt */
+@font-face{font-family:"Schibsted Grotesk";src:url("fonts/SchibstedGrotesk-VF.woff") format("woff");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/IBMPlexMono-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/IBMPlexMono-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+/* Layout: the same plotted page as index.html. One reading column on the y-axis; Terms, Privacy and Imprint each hang a point on it. */
+:root{
+  --paper:#f6f6f4; --surface:#ffffff; --ink:#151515; --muted:#5c5c57; --rule:#d8d8d3;
+  --accent:#a2482a; --night:#151515; --night-ink:#efeee9; --night-muted:#a3a29c; --night-rule:#34342f;
+  --f-sans:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --axis:2px; --gutter:clamp(16px,4vw,56px); --plot:clamp(28px,5vw,72px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111111; --surface:#191919; --ink:#efeee9; --muted:#a3a29c; --rule:#2d2d2b;
+  --accent:#c4603d; --night:#0a0a0a; --night-ink:#efeee9; --night-muted:#a3a29c; --night-rule:#2d2d2b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111111; --surface:#191919; --ink:#efeee9; --muted:#a3a29c; --rule:#2d2d2b;
+  --accent:#c4603d; --night:#0a0a0a; --night-ink:#efeee9; --night-muted:#a3a29c; --night-rule:#2d2d2b; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--f-sans)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
+a{color:var(--ink);text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.logo{display:block;flex:none;max-width:100%;height:auto}
+.logo .o{fill:var(--accent)}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{color:var(--ink);text-decoration:none}
+nav.main{display:flex;gap:clamp(14px,2.4vw,30px);font-size:15px;font-weight:500}
+nav.main a{text-decoration:none;color:var(--muted);border-bottom:2px solid transparent;padding-bottom:2px}
+nav.main a:hover{color:var(--ink)}
+nav.main a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+h1,h2,h3{margin:0;letter-spacing:-.025em;text-wrap:balance}
+h1{font-size:clamp(40px,6vw,72px);line-height:.98;font-weight:800}
+h2{font-size:clamp(28px,3.4vw,42px);line-height:1.05;font-weight:700}
+h3{font-size:19px;line-height:1.3;font-weight:600;letter-spacing:-.01em}
+p{margin:0;max-width:68ch}
+
+.intro{padding-block:clamp(40px,6vw,72px) clamp(24px,3vw,36px);display:grid;gap:18px}
+.meta{font:500 13px var(--f-mono);color:var(--muted)}
+.draft{border-left:3px solid var(--accent);padding:12px 16px;background:var(--surface);font-size:15px;max-width:68ch}
+
+.plot{border-left:var(--axis) solid var(--ink);padding-left:var(--plot);margin-bottom:clamp(48px,7vw,96px)}
+section.block{padding-block:clamp(44px,6vw,80px);display:grid;gap:24px;scroll-margin-top:90px}
+section.block+section.block{border-top:1px solid var(--rule)}
+.block>h2{position:relative}
+.block>h2::before{content:"";position:absolute;top:.55em;left:calc(-1 * var(--plot) - var(--axis) / 2);width:13px;height:13px;border-radius:50%;background:var(--accent);transform:translate(-50%,-50%)}
+.block>h2::after{content:"";position:absolute;top:.55em;left:calc(-1 * var(--plot));width:calc(var(--plot) - 14px);height:1px;background:var(--rule)}
+.lead{color:var(--muted);font-size:18px}
+
+ol.clauses{list-style:none;margin:0;padding:0;counter-reset:c}
+ol.clauses>li{counter-increment:c;display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px 12px;padding:18px 0;border-top:1px solid var(--rule)}
+ol.clauses>li::before{content:counter(c);font:500 14px var(--f-mono);color:var(--accent);padding-top:3px}
+ol.clauses>li>div{display:grid;gap:8px;min-width:0}
+ol.clauses p{color:var(--muted);font-size:16px}
+@media (max-width:520px){ol.clauses>li{grid-template-columns:minmax(0,1fr)}}
+.todo{font:500 13px var(--f-mono);color:var(--accent)}
+.notice{border:1px solid var(--rule);background:var(--surface);padding:clamp(18px,3vw,28px);display:grid;gap:12px;max-width:820px}
+.notice p{font-size:15.5px;color:var(--muted)}
+.notice strong{color:var(--ink);font-weight:600}
+ul.plain{margin:0;padding-left:20px;color:var(--muted);font-size:16px;display:grid;gap:4px}
+
+dl.imprint{margin:0;display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr);max-width:760px}
+dl.imprint dt,dl.imprint dd{margin:0;padding:12px 0;border-top:1px solid var(--rule)}
+dl.imprint dt{color:var(--muted);font-size:15px;padding-right:20px}
+@media (max-width:520px){dl.imprint{grid-template-columns:minmax(0,1fr)}dl.imprint dd{border-top:0;padding-top:0}}
+
+footer{background:var(--night);color:var(--night-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-block:24px;font-size:14px}
+footer .logo{color:var(--night-ink)}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--night-ink)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Asset and Origin, home"><svg class="logo" width="87.9" height="60" viewBox="0 0 249 170" aria-hidden="true" focusable="false"><path d="M15.5 20.5h9v125h218.5v9h-227.5z" fill="currentColor"/><circle cx="20" cy="150" r="11" class="o"/><path d="M48.21 78 61.15 44.25H70.36L83.25 78H75.47L65.72 49.5L55.99 78ZM56.67 68.77V62.98H74.72V68.77Z M95.16 78.61Q92.3 78.61 89.77 77.78Q87.23 76.95 85.5 75.19Q83.77 73.43 83.3 70.62L89.67 69.35Q89.88 71.48 91.18 72.57Q92.48 73.66 94.9 73.66Q97.22 73.66 98.34 72.74Q99.47 71.81 99.47 70.57Q99.47 69.47 98.59 68.67Q97.71 67.88 95.55 67.55L93.26 67.17Q91.9 66.96 90.36 66.6Q88.83 66.23 87.47 65.5Q86.11 64.76 85.24 63.45Q84.38 62.13 84.38 60.07Q84.38 57.56 85.72 55.77Q87.07 53.98 89.46 53.03Q91.85 52.08 94.92 52.08Q97.76 52.08 100.1 52.91Q102.45 53.74 104.03 55.35Q105.61 56.95 106.08 59.32L99.7 60.63Q99.54 59.67 99.08 58.83Q98.62 57.98 97.69 57.46Q96.75 56.93 95.16 56.93Q93.35 56.93 92.29 57.63Q91.22 58.34 91.22 59.55Q91.22 60.45 91.82 61.01Q92.41 61.57 93.46 61.91Q94.5 62.25 95.81 62.48L98.44 62.93Q100.45 63.26 102.27 64.07Q104.09 64.88 105.23 66.38Q106.38 67.88 106.38 70.31Q106.38 73.01 104.92 74.86Q103.45 76.71 100.91 77.66Q98.37 78.61 95.16 78.61Z M119.79 78.61Q116.93 78.61 114.4 77.78Q111.87 76.95 110.13 75.19Q108.4 73.43 107.93 70.62L114.3 69.35Q114.52 71.48 115.82 72.57Q117.12 73.66 119.53 73.66Q121.85 73.66 122.98 72.74Q124.1 71.81 124.1 70.57Q124.1 69.47 123.22 68.67Q122.34 67.88 120.19 67.55L117.89 67.17Q116.53 66.96 115 66.6Q113.46 66.23 112.1 65.5Q110.74 64.76 109.88 63.45Q109.01 62.13 109.01 60.07Q109.01 57.56 110.36 55.77Q111.7 53.98 114.09 53.03Q116.48 52.08 119.55 52.08Q122.39 52.08 124.73 52.91Q127.08 53.74 128.66 55.35Q130.24 56.95 130.71 59.32L124.34 60.63Q124.17 59.67 123.71 58.83Q123.26 57.98 122.32 57.46Q121.38 56.93 119.79 56.93Q117.98 56.93 116.92 57.63Q115.85 58.34 115.85 59.55Q115.85 60.45 116.45 61.01Q117.05 61.57 118.09 61.91Q119.13 62.25 120.45 62.48L123.07 62.93Q125.09 63.26 126.9 64.07Q128.72 64.88 129.87 66.38Q131.02 67.88 131.02 70.31Q131.02 73.01 129.55 74.86Q128.09 76.71 125.54 77.66Q123 78.61 119.79 78.61Z M146.04 78.61Q142.31 78.61 139.35 76.99Q136.38 75.38 134.66 72.39Q132.94 69.4 132.94 65.32Q132.94 61.27 134.64 58.29Q136.34 55.31 139.28 53.7Q142.22 52.08 145.99 52.08Q148.08 52.08 150.22 52.71Q152.37 53.34 154.17 54.95Q155.98 56.55 157.08 59.43Q158.18 62.3 158.18 66.75H137.41V62.77H151.95L151.22 64.01Q151.03 61.48 150.28 59.93Q149.53 58.38 148.38 57.68Q147.23 56.98 145.8 56.98Q143.95 56.98 142.71 58.03Q141.47 59.09 140.85 60.97Q140.23 62.86 140.23 65.34Q140.23 69.09 141.64 71.27Q143.06 73.45 145.99 73.45Q147.89 73.45 149.26 72.47Q150.63 71.48 151.36 69.47L157.69 71.09Q156.8 73.71 154.99 75.38Q153.19 77.04 150.86 77.82Q148.52 78.61 146.04 78.61Z M168.84 78Q166.03 78 164.52 76.63Q163.01 75.26 163.01 72.68V57.8H159.4V52.69H163.01V47.72L169.99 46.03V52.69H174.68V57.8H169.99V71.58Q169.99 72.35 170.21 72.62Q170.44 72.89 171.16 72.89H175.03V78Z M196.73 78.61Q193.17 78.61 190.48 77.46Q187.78 76.31 186.28 74.16Q184.78 72 184.78 69Q184.78 66.16 186.29 63.94Q187.8 61.71 191.13 60.07L197.2 56.98Q199.76 55.73 200.8 54.52Q201.84 53.3 201.84 51.89Q201.84 50.37 200.84 49.37Q199.83 48.38 198.21 48.38Q196.52 48.38 195.43 49.37Q194.34 50.37 194.34 51.96Q194.34 52.62 194.62 53.26Q194.91 53.91 195.57 54.75Q196.24 55.59 197.46 56.91L211.48 71.86Q211.92 72.3 212.54 72.59Q213.16 72.87 213.8 72.87H215.84V78H212.6Q210.38 78 209.12 77.23Q207.87 76.45 207 75.47L192.49 59.37Q190.9 57.59 189.96 56.3Q189.02 55.01 188.6 53.92Q188.18 52.83 188.18 51.66Q188.18 49.29 189.47 47.48Q190.76 45.68 193.02 44.66Q195.28 43.64 198.16 43.64Q201 43.64 203.17 44.62Q205.34 45.61 206.55 47.37Q207.77 49.12 207.77 51.42Q207.77 53.93 206.13 56.07Q204.49 58.22 200.62 60.3L195 63.42Q193.24 64.36 192.36 65.62Q191.48 66.89 191.48 68.46Q191.48 70.76 193.15 72.09Q194.81 73.43 197.7 73.43Q200.37 73.43 202.39 72.34Q204.42 71.25 205.77 69.38Q207.12 67.5 207.79 65.13Q208.45 62.77 208.45 60.23V59.09H214.05V60.75Q214.05 64.88 212.74 68.17Q211.43 71.46 209.07 73.79Q206.72 76.12 203.57 77.37Q200.41 78.61 196.73 78.61Z M66.42 126.61Q61.24 126.61 57.47 124.49Q53.7 122.37 51.66 118.44Q49.62 114.52 49.62 109.12Q49.62 103.71 51.66 99.8Q53.7 95.88 57.47 93.76Q61.24 91.64 66.45 91.64Q71.62 91.64 75.4 93.76Q79.17 95.88 81.21 99.8Q83.25 103.71 83.25 109.12Q83.25 114.52 81.21 118.44Q79.17 122.37 75.4 124.49Q71.62 126.61 66.42 126.61ZM66.42 120.49Q69.33 120.49 71.39 119.13Q73.45 117.77 74.55 115.23Q75.66 112.69 75.66 109.12Q75.66 105.54 74.55 103.01Q73.45 100.48 71.39 99.12Q69.33 97.76 66.42 97.76Q63.54 97.76 61.48 99.12Q59.41 100.48 58.31 103.01Q57.21 105.54 57.21 109.12Q57.21 112.69 58.31 115.23Q59.41 117.77 61.48 119.13Q63.54 120.49 66.42 120.49Z M86.67 126V100.69H93.42V106.38L93.14 105.63Q94.34 102.82 96.52 101.45Q98.7 100.08 101.27 100.08Q102 100.08 102.75 100.2Q103.5 100.31 104.25 100.59L103.71 106.55Q102.19 106.12 100.78 106.12Q99.63 106.12 98.38 106.52Q97.12 106.92 96.06 107.92Q94.99 108.91 94.32 110.73Q93.66 112.55 93.66 115.36V126Z M107.18 126V100.69H114.16V126ZM110.67 97.66Q108.59 97.66 107.32 96.4Q106.05 95.13 106.05 93.05Q106.05 90.94 107.32 89.68Q108.59 88.43 110.67 88.43Q112.78 88.43 114.04 89.68Q115.29 90.94 115.29 93.05Q115.29 95.13 114.04 96.4Q112.78 97.66 110.67 97.66Z M129.23 135.75Q123.12 135.75 120.14 134.13Q117.16 132.52 117.16 129.14Q117.16 127.05 118.23 125.77Q119.3 124.48 121.15 123.87Q120.28 123.26 119.78 122.34Q119.27 121.43 119.27 120.33Q119.27 118.9 120.16 117.82Q121.05 116.74 122.72 116.27Q120.87 115.1 119.82 113.26Q118.78 111.42 118.78 109.05Q118.78 106.34 120.13 104.32Q121.48 102.3 123.91 101.19Q126.35 100.08 129.61 100.08Q132.87 100.08 135.3 101.19Q137.74 102.3 139.1 104.33Q140.46 106.36 140.46 109.08Q140.46 111.75 139.1 113.77Q137.74 115.78 135.29 116.89Q132.84 118.01 129.56 118.01H127.88Q125.55 118.01 125.55 119.25Q125.55 120.45 127.88 120.45H132.98Q135.61 120.45 137.41 121.08Q139.22 121.71 140.36 122.78Q141.49 123.84 142.02 125.23Q142.55 126.61 142.55 128.13Q142.55 131.98 139.5 133.86Q136.45 135.75 130.15 135.75ZM129.4 131.3H130.24Q135.47 131.3 135.47 128.16Q135.47 126.94 134.55 126.13Q133.64 125.32 131.23 125.32H127.9Q126.45 125.32 125.27 126.01Q124.1 126.7 124.1 128.32Q124.1 129.82 125.39 130.56Q126.68 131.3 129.4 131.3ZM129.61 113.62Q131.65 113.62 132.76 112.43Q133.88 111.23 133.88 109.08Q133.88 106.92 132.76 105.7Q131.65 104.48 129.61 104.48Q127.59 104.48 126.47 105.69Q125.34 106.9 125.34 109.08Q125.34 111.23 126.47 112.43Q127.59 113.62 129.61 113.62ZM133.36 103.71V101.16Q133.36 98.58 134.86 97.21Q136.36 95.84 139.22 95.84H141.63V100.97H138.82Q138.09 100.97 137.87 101.23Q137.65 101.48 137.65 102.26V103.71Z M145.59 126V100.69H152.58V126ZM149.09 97.66Q147 97.66 145.73 96.4Q144.47 95.13 144.47 93.05Q144.47 90.94 145.73 89.68Q147 88.43 149.09 88.43Q151.2 88.43 152.45 89.68Q153.7 90.94 153.7 93.05Q153.7 95.13 152.45 96.4Q151.2 97.66 149.09 97.66Z M157.71 126V100.69H164.46V106.52L164.3 105.47Q165.45 102.96 167.55 101.52Q169.66 100.08 172.64 100.08Q175.59 100.08 177.48 101.41Q179.37 102.75 180.28 105.12Q181.2 107.48 181.2 110.58V126H174.21V111.02Q174.21 108.33 173.32 106.84Q172.43 105.35 170.23 105.35Q167.62 105.35 166.16 107.58Q164.7 109.8 164.7 114.4V126Z" fill="currentColor"/></svg></a>
+    <nav class="main" aria-label="Legal sections">
+      <a href="#terms">Terms</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#imprint">Imprint</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <h1>Legal</h1>
+    <p class="meta">Terms &amp; Conditions · Privacy Policy (Datenschutzerklärung) · Imprint (Impressum) · Last updated: [date]</p>
+    <p class="draft">Draft. The structure and the facts known so far are in place; items marked [in brackets] are still to be completed, and the whole page is to be reviewed before the site goes live.</p>
+  </div>
+
+  <div class="plot">
+
+    <section class="block" id="terms" aria-labelledby="terms-title">
+      <h2 id="terms-title">Terms &amp; Conditions</h2>
+      <p class="lead">These terms apply to every sourcing engagement with Asset &amp; Origin, for private clients and for businesses. You accept them at checkout, just before payment.</p>
+      <ol class="clauses">
+        <li><div><h3>Scope</h3><p>These terms apply to all services of Asset &amp; Origin (details in the Imprint below) for clients who are consumers and clients who act for a business. Different terms of the client do not apply unless we agree to them in writing.</p></div></li>
+        <li><div><h3>The service</h3><p>We search for assets that match the brief you give us, contact the seller of each one directly to confirm that the asset exists and is available, and introduce you to the seller. We are not a party to any purchase of an asset: the purchase contract is concluded directly between you and the seller.</p><p>Additional services are not part of the sourcing service; see the next clause.</p></div></li>
+        <li><div><h3>Additional services</h3><p>On request we can arrange independent inspection of an asset, shipping, and transport and export documents. These are separate services: we quote each one in writing before it starts, and it is paid separately from the sourcing fee.</p><p>Where they are carried out by third parties, such as inspectors, shipping companies or customs agents, those parties' own terms also apply. We choose and coordinate them with care, but we are not responsible for how they perform their work unless we have agreed otherwise in writing.</p></div></li>
+        <li><div><h3>The brief and the search</h3><p>Before we start, we agree the brief with you in writing (email is enough): what is required, what is preferred, budget, location and timing. How long a search takes depends on the type of asset; we give you an indication at the start, but no fixed deadline unless agreed in writing.</p></div></li>
+        <li><div><h3>No fee until we find a match</h3><p>You pay nothing until we have found something. When we have found at least one asset that matches your brief and whose existence we have verified, we tell you how many we have found and the fee. If you want to proceed, you pay the sourcing fee in full and in advance; we then send you the list with the details of each asset.</p><p>If we find no matching asset, no fee is due.</p><p>The sourcing fee pays for the search and for the list of verified assets, not for a purchase. It is not refunded if you decide not to buy any of the assets on the list.</p></div></li>
+        <li><div><h3>If a listed asset is no longer available</h3><p>Before we deliver the list, we contact the seller of each asset directly, usually by phone, to confirm that it exists and is available. Good assets can still sell quickly. If an asset on the list turns out to be no longer available, tell us within 48 hours of receiving the list. Once we have checked it with the seller, we refund the part of the fee for that asset: the fee divided by the number of assets on the list. For example, if the list has four assets for a fee of USD 1,000 and one is no longer available, we refund USD 250. If none of the assets is available, we refund the full fee.</p><p>No refund is due for an asset reported after 48 hours, or for an asset you decide not to buy.</p></div></li>
+        <li><div><h3>Ongoing search and other fees</h3><p>If you want us to keep the search open and send you new matches as they appear, we agree this with you individually in writing. For particularly rare or high-value assets, a different fee structure, such as a commission or a fee on completion of the purchase, may apply; it is always agreed in writing before the search starts, including when it becomes due.</p></div></li>
+        <li><div><h3>Prices and payment</h3><p>All prices are in US dollars (USD). [Prices include / do not include VAT, depending on our tax status: to be confirmed.] We send you a personal Stripe payment link for your engagement; on that page you can pay by card or with PayPal. On request, you can instead pay through an independent escrow service of your choice. Any fees charged by the payment provider are shown at checkout.</p></div></li>
+        <li><div><h3>Right of withdrawal for consumers</h3><p>If you are a consumer, you have a right of withdrawal as set out in the withdrawal notice below.</p><p>When you pay, you ask us to start immediately and confirm that you know your right of withdrawal ends once we have fully performed the service, which is when we send you the list. You give this confirmation separately from accepting these terms: on the Stripe checkout page, whether you pay by card or with PayPal, through a separate required confirmation; for escrow payments, by accepting the escrow transaction, whose text contains this confirmation. If you withdraw before we send the list, you pay an amount in proportion to the service already provided.</p></div></li>
+        <li><div><h3>What we verify, and what we don't</h3><p>We confirm with the seller that each listed asset exists and is available when we deliver the list. Descriptions, condition, history and documents come from sellers and third parties; we pass them on as we receive them and do not guarantee them. An asset may be sold by the seller after we deliver the list. Checking the asset before buying it is your responsibility.</p></div></li>
+        <li><div><h3>Your responsibilities</h3><p>You are responsible for your decision to buy, the purchase contract with the seller, payment of the purchase price, inspection, transport, import, customs and taxes, unless we agree otherwise in writing.</p></div></li>
+        <li><div><h3>Confidentiality</h3><p>The list and the seller details are for your own use. Please do not pass them on to third parties. Your brief and your details are treated as confidential by us.</p></div></li>
+        <li><div><h3>Liability</h3><p>We are liable without limitation for intent and gross negligence and for injury to life, body or health. For slight negligence we are liable only for breach of an essential contractual obligation, limited to the damage that is typical and foreseeable for this type of contract. Liability under mandatory law remains unaffected.</p><p class="todo">[to be reviewed]</p></div></li>
+        <li><div><h3>Personal data</h3><p>We handle personal data as described in the Privacy Policy below.</p></div></li>
+        <li><div><h3>Governing law and place of jurisdiction</h3><p>German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. If you are a consumer, this choice of law does not take away the protection of the mandatory rules of the country where you normally live. If you are a merchant or a legal entity, the place of jurisdiction is [city of the business seat].</p></div></li>
+      </ol>
+
+      <div class="notice" id="withdrawal">
+        <h3>Withdrawal notice for consumers</h3>
+        <p><strong>Right of withdrawal.</strong> You have the right to withdraw from this contract within fourteen days without giving any reason. The withdrawal period ends fourteen days from the day the contract is concluded. To exercise your right of withdrawal, you must inform us (Asset &amp; Origin, [full name], [postal address], info@assetandorigin.com) of your decision by a clear statement, for example a letter or an email. You may use the model withdrawal form below, but it is not obligatory. It is enough that you send your notice before the withdrawal period ends.</p>
+        <p><strong>Effects of withdrawal.</strong> If you withdraw from this contract, we reimburse all payments received from you without undue delay and at the latest within fourteen days from the day we receive your notice of withdrawal, using the same means of payment you used, unless expressly agreed otherwise; you will not be charged any fees for this reimbursement. If you asked us to begin the service during the withdrawal period, you pay us an amount in proportion to what has been provided until you inform us of your withdrawal, compared with the full coverage of the contract.</p>
+        <p><strong>Early end of the right of withdrawal.</strong> Your right of withdrawal ends early when we have fully performed the service, which is when we send you the list, provided that before payment you expressly asked us to begin during the withdrawal period and confirmed that you know you lose your right of withdrawal once we have fully performed the contract.</p>
+        <p><strong>How you give this confirmation.</strong> It is given at the moment of payment and separately from accepting the Terms: on the Stripe checkout page, whether you pay by card or with PayPal, by selecting the required confirmation; if you pay through escrow, by accepting the escrow transaction, whose text contains this confirmation. We confirm it to you by email after payment. If you do not give it, we start only after the withdrawal period has ended.</p>
+      </div>
+
+      <div class="notice">
+        <h3>Model withdrawal form</h3>
+        <p>(Complete and return this form only if you wish to withdraw from the contract.)</p>
+        <p>To: Asset &amp; Origin, [full name], [postal address], info@assetandorigin.com<br>
+        I/We (*) hereby give notice that I/we (*) withdraw from my/our (*) contract for the provision of the following service: ____<br>
+        Ordered on (*) / received on (*): ____<br>
+        Name of consumer(s): ____<br>
+        Address of consumer(s): ____<br>
+        Signature of consumer(s) (only if this form is sent on paper): ____<br>
+        Date: ____<br>
+        (*) Delete as appropriate.</p>
+      </div>
+    </section>
+
+    <section class="block" id="privacy" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Privacy Policy</h2>
+      <p class="lead">Datenschutzerklärung under the EU General Data Protection Regulation (GDPR). We collect as little as possible: this site sets no cookies, uses no analytics or tracking, and loads no content from third-party servers.</p>
+      <ol class="clauses">
+        <li><div><h3>Who is responsible</h3><p>The controller is Asset &amp; Origin, [full name], [postal address], Germany, info@assetandorigin.com. You can contact us at this address about anything in this policy. See also the Imprint below.</p></div></li>
+        <li><div><h3>Visiting this website</h3><p>When you open a page, the hosting provider's servers automatically record technical data in log files: IP address, date and time, the page requested, the referring page, and browser and operating system. We need this to deliver the site and keep it secure; the legal basis is our legitimate interest in a working and secure website (Art. 6(1)(f) GDPR). The hosting provider keeps these logs for 14 days.</p><p>Hosting provider: Porkbun LLC, Tigard, Oregon, USA (Static Hosting). It processes this data on our behalf under its data processing addendum (Art. 28 GDPR). The transfer of data to the USA is based on the EU Standard Contractual Clauses (Module Two), which are part of that addendum.</p></div></li>
+        <li><div><h3>No cookies, no analytics, no third-party content</h3><p>This site sets no cookies and uses no analytics, advertising or tracking tools. Fonts and all other files are served from this site, so opening it sends no data to other companies.</p></div></li>
+        <li><div><h3>When you contact us</h3><p>If you write to us by email, we process what you send: usually your name, email address, your requirement and your preferences. We use it to answer you and, if you want, to prepare a search (Art. 6(1)(b) GDPR). If no engagement follows, we delete your enquiry 12 months after our last contact, unless the law requires us to keep it.</p><p>Our email is hosted by Porkbun LLC, Tigard, Oregon, USA, under the same data processing addendum and the same EU Standard Contractual Clauses.</p></div></li>
+        <li><div><h3>When you engage us</h3><p>For a search we process your contact details, your brief, the correspondence about it and, for invoicing, your billing address. The legal basis is the contract with you (Art. 6(1)(b) GDPR). We keep invoices and other records for as long as German commercial and tax law requires, currently up to ten years (Art. 6(1)(c) GDPR); everything else we delete when it is no longer needed.</p><p>We pass your name and contact details to a seller only when you ask us to put you in contact with that seller.</p></div></li>
+        <li><div><h3>Payments</h3><p>You pay through a Stripe payment link. On the Stripe checkout page your card or PayPal details go directly to the payment provider; we do not see them. We receive your name, email, billing address, the amount, the payment status and the confirmations you give at checkout, which we need to process and document the payment (Art. 6(1)(b) and (c) GDPR).</p><ul class="plain"><li>Stripe: Stripe Payments Europe, Limited, Dublin, Ireland. Stripe may also process data in the USA; see its privacy policy at stripe.com/privacy.</li><li>PayPal, if you choose it: PayPal (Europe) S.à r.l. et Cie, S.C.A., Luxembourg; see its privacy statement at paypal.com.</li><li>Escrow, if you ask for it: the escrow service you choose, under its own privacy policy.</li></ul></div></li>
+        <li><div><h3>Who else receives data</h3><p>Apart from the providers named above, we share data only where we have to: with our tax advisor for accounting, and with public authorities where the law requires it. We do not sell data and do not use it for advertising.</p></div></li>
+        <li><div><h3>Do you have to provide data?</h3><p>You can visit this site without giving us any personal data. To work with us we need your contact details and your brief; for an engagement we also need your billing details. No automated decision-making or profiling takes place.</p></div></li>
+        <li><div><h3>Your rights</h3><p>You have the right to access your data, to have it corrected or deleted, to restrict its processing, to data portability, and to object to processing based on our legitimate interest (Art. 15 to 21 GDPR). To use these rights, write to the address above. You can also complain to a data protection supervisory authority, for example the one responsible for us: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg (LfDI Baden-Württemberg), www.baden-wuerttemberg.datenschutz.de.</p></div></li>
+        <li><div><h3>Changes</h3><p>We update this policy when the website or our services change. The current version is always on this page.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block" id="imprint" aria-labelledby="imprint-title">
+      <h2 id="imprint-title">Imprint</h2>
+      <p class="lead">Impressum according to § 5 DDG.</p>
+      <dl class="imprint">
+        <dt>Business</dt><dd>Asset &amp; Origin</dd>
+        <dt>Owner</dt><dd>[full name]</dd>
+        <dt>Address</dt><dd>[street and number], [postcode] [city], Germany</dd>
+        <dt>Email</dt><dd>info@assetandorigin.com</dd>
+        <dt>Phone</dt><dd>[phone number]</dd>
+        <dt>VAT ID</dt><dd>[USt-IdNr. according to § 27a UStG, or the small-business note if applicable]</dd>
+      </dl>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="logo" width="82.0" height="56" viewBox="0 0 249 170" role="img" aria-label="Asset &amp; Origin"><path d="M15.5 20.5h9v125h218.5v9h-227.5z" fill="currentColor"/><circle cx="20" cy="150" r="11" class="o"/><path d="M48.21 78 61.15 44.25H70.36L83.25 78H75.47L65.72 49.5L55.99 78ZM56.67 68.77V62.98H74.72V68.77Z M95.16 78.61Q92.3 78.61 89.77 77.78Q87.23 76.95 85.5 75.19Q83.77 73.43 83.3 70.62L89.67 69.35Q89.88 71.48 91.18 72.57Q92.48 73.66 94.9 73.66Q97.22 73.66 98.34 72.74Q99.47 71.81 99.47 70.57Q99.47 69.47 98.59 68.67Q97.71 67.88 95.55 67.55L93.26 67.17Q91.9 66.96 90.36 66.6Q88.83 66.23 87.47 65.5Q86.11 64.76 85.24 63.45Q84.38 62.13 84.38 60.07Q84.38 57.56 85.72 55.77Q87.07 53.98 89.46 53.03Q91.85 52.08 94.92 52.08Q97.76 52.08 100.1 52.91Q102.45 53.74 104.03 55.35Q105.61 56.95 106.08 59.32L99.7 60.63Q99.54 59.67 99.08 58.83Q98.62 57.98 97.69 57.46Q96.75 56.93 95.16 56.93Q93.35 56.93 92.29 57.63Q91.22 58.34 91.22 59.55Q91.22 60.45 91.82 61.01Q92.41 61.57 93.46 61.91Q94.5 62.25 95.81 62.48L98.44 62.93Q100.45 63.26 102.27 64.07Q104.09 64.88 105.23 66.38Q106.38 67.88 106.38 70.31Q106.38 73.01 104.92 74.86Q103.45 76.71 100.91 77.66Q98.37 78.61 95.16 78.61Z M119.79 78.61Q116.93 78.61 114.4 77.78Q111.87 76.95 110.13 75.19Q108.4 73.43 107.93 70.62L114.3 69.35Q114.52 71.48 115.82 72.57Q117.12 73.66 119.53 73.66Q121.85 73.66 122.98 72.74Q124.1 71.81 124.1 70.57Q124.1 69.47 123.22 68.67Q122.34 67.88 120.19 67.55L117.89 67.17Q116.53 66.96 115 66.6Q113.46 66.23 112.1 65.5Q110.74 64.76 109.88 63.45Q109.01 62.13 109.01 60.07Q109.01 57.56 110.36 55.77Q111.7 53.98 114.09 53.03Q116.48 52.08 119.55 52.08Q122.39 52.08 124.73 52.91Q127.08 53.74 128.66 55.35Q130.24 56.95 130.71 59.32L124.34 60.63Q124.17 59.67 123.71 58.83Q123.26 57.98 122.32 57.46Q121.38 56.93 119.79 56.93Q117.98 56.93 116.92 57.63Q115.85 58.34 115.85 59.55Q115.85 60.45 116.45 61.01Q117.05 61.57 118.09 61.91Q119.13 62.25 120.45 62.48L123.07 62.93Q125.09 63.26 126.9 64.07Q128.72 64.88 129.87 66.38Q131.02 67.88 131.02 70.31Q131.02 73.01 129.55 74.86Q128.09 76.71 125.54 77.66Q123 78.61 119.79 78.61Z M146.04 78.61Q142.31 78.61 139.35 76.99Q136.38 75.38 134.66 72.39Q132.94 69.4 132.94 65.32Q132.94 61.27 134.64 58.29Q136.34 55.31 139.28 53.7Q142.22 52.08 145.99 52.08Q148.08 52.08 150.22 52.71Q152.37 53.34 154.17 54.95Q155.98 56.55 157.08 59.43Q158.18 62.3 158.18 66.75H137.41V62.77H151.95L151.22 64.01Q151.03 61.48 150.28 59.93Q149.53 58.38 148.38 57.68Q147.23 56.98 145.8 56.98Q143.95 56.98 142.71 58.03Q141.47 59.09 140.85 60.97Q140.23 62.86 140.23 65.34Q140.23 69.09 141.64 71.27Q143.06 73.45 145.99 73.45Q147.89 73.45 149.26 72.47Q150.63 71.48 151.36 69.47L157.69 71.09Q156.8 73.71 154.99 75.38Q153.19 77.04 150.86 77.82Q148.52 78.61 146.04 78.61Z M168.84 78Q166.03 78 164.52 76.63Q163.01 75.26 163.01 72.68V57.8H159.4V52.69H163.01V47.72L169.99 46.03V52.69H174.68V57.8H169.99V71.58Q169.99 72.35 170.21 72.62Q170.44 72.89 171.16 72.89H175.03V78Z M196.73 78.61Q193.17 78.61 190.48 77.46Q187.78 76.31 186.28 74.16Q184.78 72 184.78 69Q184.78 66.16 186.29 63.94Q187.8 61.71 191.13 60.07L197.2 56.98Q199.76 55.73 200.8 54.52Q201.84 53.3 201.84 51.89Q201.84 50.37 200.84 49.37Q199.83 48.38 198.21 48.38Q196.52 48.38 195.43 49.37Q194.34 50.37 194.34 51.96Q194.34 52.62 194.62 53.26Q194.91 53.91 195.57 54.75Q196.24 55.59 197.46 56.91L211.48 71.86Q211.92 72.3 212.54 72.59Q213.16 72.87 213.8 72.87H215.84V78H212.6Q210.38 78 209.12 77.23Q207.87 76.45 207 75.47L192.49 59.37Q190.9 57.59 189.96 56.3Q189.02 55.01 188.6 53.92Q188.18 52.83 188.18 51.66Q188.18 49.29 189.47 47.48Q190.76 45.68 193.02 44.66Q195.28 43.64 198.16 43.64Q201 43.64 203.17 44.62Q205.34 45.61 206.55 47.37Q207.77 49.12 207.77 51.42Q207.77 53.93 206.13 56.07Q204.49 58.22 200.62 60.3L195 63.42Q193.24 64.36 192.36 65.62Q191.48 66.89 191.48 68.46Q191.48 70.76 193.15 72.09Q194.81 73.43 197.7 73.43Q200.37 73.43 202.39 72.34Q204.42 71.25 205.77 69.38Q207.12 67.5 207.79 65.13Q208.45 62.77 208.45 60.23V59.09H214.05V60.75Q214.05 64.88 212.74 68.17Q211.43 71.46 209.07 73.79Q206.72 76.12 203.57 77.37Q200.41 78.61 196.73 78.61Z M66.42 126.61Q61.24 126.61 57.47 124.49Q53.7 122.37 51.66 118.44Q49.62 114.52 49.62 109.12Q49.62 103.71 51.66 99.8Q53.7 95.88 57.47 93.76Q61.24 91.64 66.45 91.64Q71.62 91.64 75.4 93.76Q79.17 95.88 81.21 99.8Q83.25 103.71 83.25 109.12Q83.25 114.52 81.21 118.44Q79.17 122.37 75.4 124.49Q71.62 126.61 66.42 126.61ZM66.42 120.49Q69.33 120.49 71.39 119.13Q73.45 117.77 74.55 115.23Q75.66 112.69 75.66 109.12Q75.66 105.54 74.55 103.01Q73.45 100.48 71.39 99.12Q69.33 97.76 66.42 97.76Q63.54 97.76 61.48 99.12Q59.41 100.48 58.31 103.01Q57.21 105.54 57.21 109.12Q57.21 112.69 58.31 115.23Q59.41 117.77 61.48 119.13Q63.54 120.49 66.42 120.49Z M86.67 126V100.69H93.42V106.38L93.14 105.63Q94.34 102.82 96.52 101.45Q98.7 100.08 101.27 100.08Q102 100.08 102.75 100.2Q103.5 100.31 104.25 100.59L103.71 106.55Q102.19 106.12 100.78 106.12Q99.63 106.12 98.38 106.52Q97.12 106.92 96.06 107.92Q94.99 108.91 94.32 110.73Q93.66 112.55 93.66 115.36V126Z M107.18 126V100.69H114.16V126ZM110.67 97.66Q108.59 97.66 107.32 96.4Q106.05 95.13 106.05 93.05Q106.05 90.94 107.32 89.68Q108.59 88.43 110.67 88.43Q112.78 88.43 114.04 89.68Q115.29 90.94 115.29 93.05Q115.29 95.13 114.04 96.4Q112.78 97.66 110.67 97.66Z M129.23 135.75Q123.12 135.75 120.14 134.13Q117.16 132.52 117.16 129.14Q117.16 127.05 118.23 125.77Q119.3 124.48 121.15 123.87Q120.28 123.26 119.78 122.34Q119.27 121.43 119.27 120.33Q119.27 118.9 120.16 117.82Q121.05 116.74 122.72 116.27Q120.87 115.1 119.82 113.26Q118.78 111.42 118.78 109.05Q118.78 106.34 120.13 104.32Q121.48 102.3 123.91 101.19Q126.35 100.08 129.61 100.08Q132.87 100.08 135.3 101.19Q137.74 102.3 139.1 104.33Q140.46 106.36 140.46 109.08Q140.46 111.75 139.1 113.77Q137.74 115.78 135.29 116.89Q132.84 118.01 129.56 118.01H127.88Q125.55 118.01 125.55 119.25Q125.55 120.45 127.88 120.45H132.98Q135.61 120.45 137.41 121.08Q139.22 121.71 140.36 122.78Q141.49 123.84 142.02 125.23Q142.55 126.61 142.55 128.13Q142.55 131.98 139.5 133.86Q136.45 135.75 130.15 135.75ZM129.4 131.3H130.24Q135.47 131.3 135.47 128.16Q135.47 126.94 134.55 126.13Q133.64 125.32 131.23 125.32H127.9Q126.45 125.32 125.27 126.01Q124.1 126.7 124.1 128.32Q124.1 129.82 125.39 130.56Q126.68 131.3 129.4 131.3ZM129.61 113.62Q131.65 113.62 132.76 112.43Q133.88 111.23 133.88 109.08Q133.88 106.92 132.76 105.7Q131.65 104.48 129.61 104.48Q127.59 104.48 126.47 105.69Q125.34 106.9 125.34 109.08Q125.34 111.23 126.47 112.43Q127.59 113.62 129.61 113.62ZM133.36 103.71V101.16Q133.36 98.58 134.86 97.21Q136.36 95.84 139.22 95.84H141.63V100.97H138.82Q138.09 100.97 137.87 101.23Q137.65 101.48 137.65 102.26V103.71Z M145.59 126V100.69H152.58V126ZM149.09 97.66Q147 97.66 145.73 96.4Q144.47 95.13 144.47 93.05Q144.47 90.94 145.73 89.68Q147 88.43 149.09 88.43Q151.2 88.43 152.45 89.68Q153.7 90.94 153.7 93.05Q153.7 95.13 152.45 96.4Q151.2 97.66 149.09 97.66Z M157.71 126V100.69H164.46V106.52L164.3 105.47Q165.45 102.96 167.55 101.52Q169.66 100.08 172.64 100.08Q175.59 100.08 177.48 101.41Q179.37 102.75 180.28 105.12Q181.2 107.48 181.2 110.58V126H174.21V111.02Q174.21 108.33 173.32 106.84Q172.43 105.35 170.23 105.35Q167.62 105.35 166.16 107.58Q164.7 109.8 164.7 114.4V126Z" fill="currentColor"/></svg>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="#terms">Terms</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#imprint">Imprint</a>
+      <span>© 2026 Asset &amp; Origin</span>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.main a'));
+  var targets = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  function mark(id){ links.forEach(function(a){ if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); }); }
+  function onScroll(){
+    var line = window.innerHeight * 0.35, current = null;
+    targets.forEach(function(t){ if (t && t.getBoundingClientRect().top <= line) current = t.id; });
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 2) current = 'imprint';
+    if (current) mark(current); else links.forEach(function(a){ a.removeAttribute('aria-current'); });
+  }
+  links.forEach(function(a){ a.addEventListener('click', function(){ mark(a.getAttribute('href').slice(1)); }); });
+  window.addEventListener('scroll', onScroll, {passive: true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
