@@ -142,10 +142,10 @@ ul.lines li{padding:10px 0;border-top:1px solid var(--rule);font-size:16px}
 .step .t{font:500 13px var(--f-mono);color:var(--muted)}
 .step p{font-size:15.5px;color:var(--muted)}
 @media (max-width:900px){
-  .xaxis{grid-template-columns:minmax(0,1fr);padding-top:0;padding-left:30px;gap:28px}
-  .xaxis::before{left:0;right:auto;top:0;bottom:0;width:var(--axis);height:auto}
-  .xaxis::after{display:none}
-  .step::before{left:-30px;top:.6em;width:16px;height:var(--axis)}
+  /* one axis on narrow screens: each step is a tick on the page's y-axis */
+  .xaxis{grid-template-columns:minmax(0,1fr);padding-top:0;gap:28px}
+  .xaxis::before,.xaxis::after{display:none}
+  .step::before{left:calc(-1 * (var(--plot) + var(--bar) / 2));top:.6em;width:14px;height:var(--axis)}
 }
 
 .fee{display:grid;gap:12px;max-width:760px}
